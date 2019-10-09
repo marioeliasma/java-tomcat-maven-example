@@ -16,8 +16,6 @@ Guardamos el token en el credential manager de Jenkins.
 
 Es necesario darle permisos a /var/run/docker.sock dentro del servidor Jenkins para que el usuario Jenkins tenga los permisos necesarios para ejecutar Docker
 
-Configuramos las librerías compartidas en Jenkins apuntándolas al repositorio donde estén.
-
 Configuramos un “Pipeline Job” que apunte al repositorio donde tenemos nuestro proyecto de Java.
 
 Añadimos los archivos necesarios para la construcción (Dockerfile, Jenkinsfile) en el repositorio del proyecto de Java.
@@ -32,6 +30,7 @@ Ejecutamos Build en Jenkins para ejecutar las etapas de:
 Para seguridad utlizamos Dependcy Check, haciendo la ejecucion con maven.
 
 Repo con librerias compartidas.
+Configuramos las librerías compartidas en Jenkins apuntándolas al repositorio donde estén.
 https://github.com/marioeliasma/jenkins-sharedlib
 
 
