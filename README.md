@@ -42,5 +42,5 @@ https://cloud.docker.com/u/marioelias14/repository/docker/marioelias14/java-tomc
 
 Construimos nuestro pod con las configuraciones del servicio y ejecutamos:
 
-minikube start --cpus 2 --memory 4096  (Para levantar un cluster) \n
+minikube start --cpus 2 --memory 4096  (Para levantar un cluster)
 kubectl apply -f java-tomcat.yaml (Para levantar el servicio)
