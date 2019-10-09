@@ -1,0 +1,2 @@
+library(sharedlib)_
+javaCi()
