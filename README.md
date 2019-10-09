@@ -21,7 +21,7 @@ Configuramos un “Pipeline Job” que apunte al repositorio donde tenemos nuest
 Añadimos los archivos necesarios para la construcción (Dockerfile, Jenkinsfile) en el repositorio del proyecto de Java.
 
 Ejecutamos Build en Jenkins para ejecutar las etapas de:
-- Sonar
+- Calidad
 - Pruebas Unitarias
 - Empaquetado
 - Construccion de imagen y Despliegue a Dockerhub
