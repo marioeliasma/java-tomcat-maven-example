@@ -30,11 +30,11 @@ Ejecutamos Build en Jenkins para ejecutar las etapas de:
 Para seguridad utilice Dependcy Check, haciendo la ejecucion con maven.
 Instalamos en Jenkins el OWASP Dependency-Check para tener mejor visualizacion de las ejecuciones
 
-Repo con librerias compartidas.
+### Repo con librerias compartidas.
 Se requiere configurar las librerías compartidas en Jenkins apuntándolas al repositorio donde estén.
 https://github.com/marioeliasma/jenkins-sharedlib
 
-### Doceker hub
+### Docker hub
 Url con la imagen arriba en docker hub
 https://cloud.docker.com/u/marioelias14/repository/docker/marioelias14/java-tomcat-maven-example
 
@@ -42,5 +42,5 @@ https://cloud.docker.com/u/marioelias14/repository/docker/marioelias14/java-tomc
 
 Construimos nuestro pod con las configuraciones del servicio y ejecutamos:
 
-minikube start --cpus 2 --memory 4096  (Para levantar un cluster)
+minikube start --cpus 2 --memory 4096  (Para levantar un cluster) \n
 kubectl apply -f java-tomcat.yaml (Para levantar el servicio)
