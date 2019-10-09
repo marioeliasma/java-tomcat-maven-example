@@ -24,7 +24,7 @@ Ejecutamos Build en Jenkins para ejecutar las etapas de:
 - Sonar
 - Pruebas Unitarias
 - Empaquetado
-- Construction y Despliegue a Github
+- Construccion de imagen y Despliegue a Dockerhub
 - Seguridad
 
 Para seguridad utilice Dependcy Check, haciendo la ejecucion con maven.
