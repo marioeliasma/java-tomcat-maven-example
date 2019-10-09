@@ -1,54 +1,43 @@
-# java-tomcat-maven-example
+## Java Tomcat Example con CI
 
-This is an example ready-to-deploy java web application built for Tomcat using Maven and webapp-runner.
+## Instrucciones para la ejecución
+ 
+Creamos un docker-compose con
+- Jenkins para orquestar las ejecuciones de pruebas, construcción y despliegue.
+- Sonar para ejecutar calidad de código
 
-## Running Locally
+Ejecutamos “docker-compose up -d”.
 
-(need maven and java installed)
+Configuramos el Jenkins y sonar.
 
-```
-mvn package
-java -jar target/dependency/webapp-runner.jar target/*.war
-```
+Generamos un token de seguridad en sonar para ejecutar los análisis.
 
-The application will be available on `http://localhost:8080`.
+Guardamos el token en el credential manager de Jenkins.
 
-## How This Was Built
+Es necesario darle permisos a /var/run/docker.sock dentro del servidor Jenkins para que el usuario Jenkins tenga los permisos necesarios para ejecutar Docker
 
-1. Generate the project using a Maven archetype:
+Configuramos las librerías compartidas en Jenkins apuntándolas al repositorio donde estén.
 
-   ```
-   mvn archetype:generate -DarchetypeArtifactId=maven-archetype-webapp
-   ```
+Configuramos un “Pipeline Job” que apunte al repositorio donde tenemos nuestro proyecto de Java.
 
-2. Add the webapp-runner plugin into the `pom.xml`:
+Añadimos los archivos necesarios para la construcción (Dockerfile, Jenkinsfile) en el repositorio del proyecto de Java.
 
-   ```
-   <build>
-     <!-- ... -->
-     <plugins>
-       <!-- ... -->
-       <plugin>
-         <groupId>org.apache.maven.plugins</groupId>
-         <artifactId>maven-dependency-plugin</artifactId>
-         <version>2.3</version>
-         <executions>
-           <execution>
-             <phase>package</phase>
-             <goals><goal>copy</goal></goals>
-             <configuration>
-               <artifactItems>
-                 <artifactItem>
-                   <groupId>com.github.jsimone</groupId>
-                   <artifactId>webapp-runner</artifactId>
-                   <version>8.5.11.3</version>
-                   <destFileName>webapp-runner.jar</destFileName>
-                 </artifactItem>
-               </artifactItems>
-             </configuration>
-           </execution>
-         </executions>
-       </plugin>
-     </plugins>
-   </build>
-   ```
+Ejecutamos Build en Jenkins para ejecutar las etapas de:
+- Sonar
+- Pruebas Unitarias
+- Empaquetado
+- Construction y Despliegue a Github
+- Seguridad
+
+Para seguridad utlizamos Dependcy Check, haciendo la ejecucion con maven.
+
+Repo con librerias compartidas.
+https://github.com/marioeliasma/jenkins-sharedlib
+
+
+## Instrucciones para levantar en kubernetes
+
+Construimos nuestro pod con las configuraciones del servicio y ejecutamos:
+
+minikube start --cpus 2 --memory 4096  (Para levantar un cluster)
+kubectl apply -f java-tomcat.yaml (Para levantar el servicio)
