@@ -15,15 +15,18 @@ node {
             }
         }
         stage("Test") { 
+            // Aqui descargamos el repositorio con el codigo de la aplicacion y ejecutamos pruebas unitarias
             checkout scm
             sh "${MAVEN_HOME}/bin/mvn test"
         }
 
         stage ("Build") {
+            // Compilamos y construimos la aplicacion
             sh "${MAVEN_HOME}/bin/mvn clean package" 
         }
 
         stage("Deploy to Docker hub") {
+            // Publicamos a Docker hub la imagen
             pom = readMavenPom file: 'pom.xml'
             withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'password', usernameVariable: 'username')]) {
                 sh "${DOCKER_HOME}/bin/docker build -t $username/${pom.artifactId}:${pom.version} ."
@@ -33,6 +36,7 @@ node {
         }
 
         stage('Security') {
+            // Corremos pruebas de seguridad de las dependencias del proyecto
           sh 'mvn org.owasp:dependency-check-maven:check -Dformat=XML -DautoUpdate=false'
           step([$class: 'DependencyCheckPublisher', unstableTotalAll: '0'])
         }

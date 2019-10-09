@@ -27,10 +27,11 @@ Ejecutamos Build en Jenkins para ejecutar las etapas de:
 - Construction y Despliegue a Github
 - Seguridad
 
-Para seguridad utlizamos Dependcy Check, haciendo la ejecucion con maven.
+Para seguridad utilice Dependcy Check, haciendo la ejecucion con maven.
+Instalamos en Jenkins el OWASP Dependency-Check para tener mejor visualizacion de las ejecuciones
 
 Repo con librerias compartidas.
-Configuramos las librerías compartidas en Jenkins apuntándolas al repositorio donde estén.
+Se requiere configurar las librerías compartidas en Jenkins apuntándolas al repositorio donde estén.
 https://github.com/marioeliasma/jenkins-sharedlib
 
 
