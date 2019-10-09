@@ -31,7 +31,7 @@ Para seguridad utilice Dependcy Check, haciendo la ejecucion con maven.
 Instalamos en Jenkins el OWASP Dependency-Check para tener mejor visualizacion de las ejecuciones
 
 ### Repo con librerias compartidas.
-Se requiere configurar las librerías compartidas en Jenkins apuntándolas al repositorio donde estén.
+Opcional se puede configurar las librerías compartidas en Jenkins apuntándolas al repositorio donde estén. y descomentado el codigo en el Jenkinsfile
 https://github.com/marioeliasma/jenkins-sharedlib
 
 ### Docker hub
