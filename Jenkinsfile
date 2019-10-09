@@ -1,2 +1,2 @@
-library(sharedlib)_
+@Library('sharedlib') _
 javaCi()
