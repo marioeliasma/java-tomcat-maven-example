@@ -34,6 +34,9 @@ Repo con librerias compartidas.
 Se requiere configurar las librerías compartidas en Jenkins apuntándolas al repositorio donde estén.
 https://github.com/marioeliasma/jenkins-sharedlib
 
+### Doceker hub
+Url con la imagen arriba en docker hub
+https://cloud.docker.com/u/marioelias14/repository/docker/marioelias14/java-tomcat-maven-example
 
 ## Instrucciones para levantar en kubernetes
 
